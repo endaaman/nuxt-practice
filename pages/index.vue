@@ -1,69 +1,111 @@
-<style lang="scss">
+<style scope lang="scss">
 @import "../css/variables";
 
-.memo-content {
-  h2 {
-    margin: 48px 0 24px;
-
-    font-size: $size-4;
-    border-bottom: solid 2px $border;
+.memo-item {
+  padding: 8px 16px;
+  margin: 36px 0;
+  border-left: 2px solid $black-unified;
+  /* background-color: $white-ter; */
+  &:hover {
+    background-color: $white-ter;
   }
-
-
-  h3 {
-    margin: 24px 0;
-    padding-left: 12px;
-
-    font-size: $size-5;
-    border-left: solid 2px $border;
+  .memo-title {
+    font-size: 24px;
+    line-height: 36px;
   }
-
-  p {
+  .memo-subtitle {
+    font-size: 16px;
     line-height: 24px;
-    margin: 24px 0;
+  }
+  .memo-sub {
+    margin: 8px 0;
+    overflow: hidden;
+  }
+  .memo-date {
+    float: left;
+    color: $text-light;
+    /* font-size: $size-7; */
+  }
+  .memo-tags {
+    margin: 0;
+    float: right;
   }
 }
+
 </style>
 
 <template lang="pug">
-.section
-  .container
-    h1.title Neomakeを使いこなせ！
-    h2.subtitle syntasticから移行した
-    .tags
-      .tag.is-white Vim
-      .tag.is-white Java
-      .tag.is-white C言語
-  hr
-  .container.memo-content
-    VueMarkdown {{ memo.content }}
+.article.container
+  .columns
+    .column
+      .memo-item(v-for="memo in memos", :key="memo.slug")
+        router-link.nodeco-block(:to="{path: '/-/' + memo.slug}")
+          div.memo-title {{memo.title}}
+          div.memo-subtitle {{memo.digest}}
+        .memo-sub
+          .memo-date
+            | {{formatDate(memo.updated_at)}}
+          .memo-tags
+            .tags
+              a.tag.is-white Vim
+              a.tag.is-white Java
+              a.tag.is-white C言語
+    .column.is-narrow
+      .aside.menu(style="width: 240px;").is-medium
+        .menu-label
+          p.menu-label Links
+          ul.menu-list
+            li
+              router-link(to="/about") About me
+
+          p.menu-label Links
+          ul.menu-list
+            li
+              a(href="http://twitter.com/endaaman") Twitter
+            li
+              a(href="http://github.com/endaaman") GitHub
+
+          p.menu-label Category
+          ul.menu-list
+            li
+              a(href="#") プログラミング(10)
+            li
+              a(href="#") ポエム(6)
+            li
+              a(href="#") 医学(9)
+            li
+              a(href="#") 未分類(10)
+
+          p.menu-label Tags
+          ul.menu-list
+            li
+              a(href="#") Vim(1)
+            li
+              a(href="#") C言語(4)
+            li
+              a(href="#") Java(10)
+
 </template>
 
 <script>
 import axios from 'axios'
+import fecha from 'fecha'
 import { mapState } from 'vuex'
 
 export default {
-  layout: 'default',
   async fetch ({ store, params }) {
-    const { data } = await axios.get('https://api.endaaman.me/memos')
-    store.commit('setMemoItems', data)
+    await store.dispatch('fetchMemos')
   },
   computed: {
-    memo() {
-      const items = this.$store.state.memo.items
-      console.log(items)
-      return items[items.length - 1]
+    memos() {
+      return this.$store.state.memos
     },
-    // ...mapState([
-    //   'memo'
-    // ])
   },
   methods: {
-    increment() {
-      this.$store.commit('increment')
+    formatDate(date) {
+      return fecha.format(new Date(date), 'YYYY年MM月DD日')
     }
-  },
+  }
 }
 
 </script>

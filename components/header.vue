@@ -1,14 +1,13 @@
 <style scoped lang="scss">
 @import "../css/variables";
-header {
-  padding: 24px;
 
+header {
   background-color: $black-unified;
   color: $white-unified;
-  /* border-bottom: 4px solid $black-unified; */
 }
 
 h1 {
+  margin: 24px;
   font-family: 'Ubuntu Condensed', cursive;
   font-weight: bold;
   text-align: center;
@@ -22,6 +21,7 @@ h1 {
 
 <template lang="pug">
 header
-  router-link.link-block(to='/')
-    h1 ENDAAMAN.ME
+  h1
+    router-link.nodeco-inline(to='/')
+      | ENDAAMAN.ME
 </template>

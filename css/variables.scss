@@ -5,32 +5,6 @@
 $white-unified: $white-ter;
 $black-unified: $black-ter;
 
-$body-background-color: $white;
-$border: $black-unified;
-$text: $black-unified;
-
-$weight-medium   : 400;
-$weight-semibold : 400;
-$weight-bold     : 700;
-
-$radius-small: 0px;
-$radius: 0px;
-$radius-large: 0;
-
-// Partial
-
-$body-size: 16px;
-
-$pre: $black-unified;
-$pre-background: $white;
-
-$code: $red;
-$code-background: $white;
-
-$hr-height: 2px;
-
-// Override
-
 $black        : $black-unified;
 $black-ter    : $black-unified;
 $black-bis    : $black-unified;
@@ -39,3 +13,33 @@ $grey-dark    : $black-unified;
 $grey         : $black-unified;
 $grey-light   : $black-unified;
 $grey-lighter : $black-unified;
+
+$body-background-color: $white;
+$border: $black-unified;
+$text: $black-unified;
+
+$weight-medium : 400;
+$weight-semibold : 400;
+$weight-bold : 700;
+
+$radius-small: 0;
+$radius: 0;
+$radius-large: 0;
+
+// Partial
+
+$menu-list-border-left: 2px solid $border;
+
+$pre: $black-unified;
+$pre-background: $white-ter;
+
+$code: $red;
+$code-background: $white-ter;
+
+$hr-height: 2px;
+
+$family-sans-serif: Ubuntu, 'Helvetica Neue', "Hiragino Kaku Gothic ProN", Meiryo, Arial, sans-serif;
+$family-monospace: 'Ubuntu Mono', consolas, 'Courier New', Courier, monospace;
+$family-primary: $family-sans-serif;
+$family-code: $family-monospace;
+$body-primary: $family-sans-serif;

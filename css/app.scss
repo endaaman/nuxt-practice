@@ -1,6 +1,4 @@
 @import "./variables";
-@import "~bulma";
-// @import "~buefy/src/scss/buefy";
 
 html, body {
   height: 100%;
@@ -16,7 +14,12 @@ html, body {
   height: 100%;
 }
 
-a.link-block {
+a.nodeco-inline {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+a.nodeco-block {
   display: block;
   color: inherit;
   text-decoration: inherit;
@@ -29,5 +32,13 @@ pre {
 
 .tag.is-white {
   border: solid 1px $border;
+  &:hover {
+    text-decoration: none;
+    color: $white;
+    background-color: $black-unified;
+  }
 }
 
+.article {
+  padding: 24px;
+}

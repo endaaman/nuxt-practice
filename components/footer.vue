@@ -9,8 +9,8 @@ footer {
 
   font-style: italic;
 
-  background-color: $black-bis;
-  color: $white-ter;
+  background-color: $black-unified;
+  color: $white-unified;
 }
 </style>
 

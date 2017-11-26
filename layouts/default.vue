@@ -1,7 +1,6 @@
 <template lang="pug">
 .root
-  Header
-  main
-    nuxt
-  Footer
+  my-header
+  nuxt
+  my-footer
 </template>

@@ -3,7 +3,7 @@ module.exports = {
     link: [
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Barlow+Condensed|Monoton|Poiret+One|Ubuntu|Ubuntu+Condensed',
+        href: 'https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Condensed|Ubuntu+Mono',
       },
     ],
     meta: [
@@ -13,6 +13,7 @@ module.exports = {
   },
   css: [
     { src: 'prismjs/themes/prism.css', lang: 'css'},
+    { src: '@/css/bulma.scss', lang: 'scss'},
     { src: '@/css/app.scss', lang: 'scss'},
   ],
   render: {
