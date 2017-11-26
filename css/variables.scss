@@ -1,0 +1,41 @@
+@import "~bulma/sass/utilities/_all";
+
+// General
+
+$white-unified: $white-ter;
+$black-unified: $black-ter;
+
+$body-background-color: $white;
+$border: $black-unified;
+$text: $black-unified;
+
+$weight-medium   : 400;
+$weight-semibold : 400;
+$weight-bold     : 700;
+
+$radius-small: 0px;
+$radius: 0px;
+$radius-large: 0;
+
+// Partial
+
+$body-size: 16px;
+
+$pre: $black-unified;
+$pre-background: $white;
+
+$code: $red;
+$code-background: $white;
+
+$hr-height: 2px;
+
+// Override
+
+$black        : $black-unified;
+$black-ter    : $black-unified;
+$black-bis    : $black-unified;
+$grey-darker  : $black-unified;
+$grey-dark    : $black-unified;
+$grey         : $black-unified;
+$grey-light   : $black-unified;
+$grey-lighter : $black-unified;

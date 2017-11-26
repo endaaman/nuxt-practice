@@ -1,19 +1,23 @@
-<template lang="pug">
-footer.footer
-  .container
-    .level
-      .level-item.has-text-centered
-        div
-          p.heading GitHub
-          p.title @endaaman
-      .level-item.has-text-centered
-        div
-          p.heading Twitter
-          p.title @endaaman
-</template>
-
-<style scoped>
+<style scoped lang="scss">
+@import "../css/variables";
 footer {
   margin-top: auto;
+
+  height: 24px;
+  line-height: 24px;
+  text-align: right;
+
+  font-style: italic;
+
+  background-color: $black-bis;
+  color: $white-ter;
 }
 </style>
+
+</style>
+
+<template lang="pug">
+footer
+  .container
+    span.is-size-7 Built at {{ (new Date()).toJSON() }}
+</template>

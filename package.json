@@ -12,6 +12,7 @@
     "buefy": "^0.5.4",
     "bulma": "^0.6.1",
     "nuxt": "^1.0.0-rc11",
+    "prismjs": "^1.8.4",
     "vue-markdown": "^2.2.4"
   },
   "devDependencies": {

@@ -9,12 +9,11 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Meta description' }
     ]
   },
   css: [
-    '@/css/bulma.scss',
-    '@/css/app.scss',
+    { src: 'prismjs/themes/prism.css', lang: 'css'},
+    { src: '@/css/app.scss', lang: 'scss'},
   ],
   render: {
     bundleRenderer: {
@@ -23,14 +22,9 @@ module.exports = {
       }
     }
   },
-  build: {
-    vendor: [
-      'axios',
-      'vue-markdown'
-    ]
-  },
   plugins: [
     '~plugins/markdown',
     '~plugins/global',
+    '~plugins/prism',
   ]
 }

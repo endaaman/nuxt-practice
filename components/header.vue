@@ -1,45 +1,27 @@
-<template lang="pug">
-header
-  h1 ENDAAMAN.ME
-  ul
-    li
-      nuxt-link.is-dark(to="/") Home
-    li
-      nuxt-link(to="/about") About
-  hr
-</template>
+<style scoped lang="scss">
+@import "../css/variables";
+header {
+  padding: 24px;
 
-<style scoped>
+  background-color: $black-unified;
+  color: $white-unified;
+  /* border-bottom: 4px solid $black-unified; */
+}
+
 h1 {
   font-family: 'Ubuntu Condensed', cursive;
+  font-weight: bold;
   text-align: center;
-}
+  height: 100%;
 
-ul {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  text-align: center;
-  margin: 0px;
+  font-size: 24px;
+  line-height: 24px;
+  height: 24px;
 }
-
-ul li {
-  list-style: none;
-  position: relative;
-  margin: 0 10px;
-}
-
-ul li a {
-  font-family: 'Ubuntu Condensed', cursive;
-  display: block;
-  padding: 5px 20px;
-  border-bottom: 2px solid #000;
-  text-decoration: none;
-  font-size: 20px;
-}
-
-hr {
-  border: 0;
-}
-
 </style>
+
+<template lang="pug">
+header
+  router-link.link-block(to='/')
+    h1 ENDAAMAN.ME
+</template>
