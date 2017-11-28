@@ -1,4 +1,5 @@
 module.exports = {
+  dev: process.env.NODE_ENV !== 'production',
   head: {
     link: [
       {
@@ -12,7 +13,7 @@ module.exports = {
     ]
   },
   css: [
-    { src: 'prismjs/themes/prism.css', lang: 'css'},
+    { src: 'highlight.js/styles/vs.css', lang: 'css'},
     { src: '@/css/bulma.scss', lang: 'scss'},
     { src: '@/css/app.scss', lang: 'scss'},
   ],
@@ -26,6 +27,6 @@ module.exports = {
   plugins: [
     '~plugins/markdown',
     '~plugins/global',
-    '~plugins/prism',
+    // '~plugins/prism',
   ]
 }
