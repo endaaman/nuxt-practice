@@ -1,22 +1,18 @@
 @import "~bulma/sass/utilities/_all";
 
 // General
-
-$white-unified: $white-ter;
-$black-unified: $black-ter;
-
-$black        : $black-unified;
-$black-ter    : $black-unified;
-$black-bis    : $black-unified;
-$grey-darker  : $black-unified;
-$grey-dark    : $black-unified;
-$grey         : $black-unified;
-$grey-light   : $black-unified;
-$grey-lighter : $black-unified;
-
 $body-background-color: $white;
-$border: $black-unified;
-$text: $black-unified;
+
+$border: $black-ter;
+$border-hover: $grey;
+
+$input-border-color: $black-ter;
+$input-hover-border-color: $grey;
+
+$button-border-color: $black-ter;
+$button-hover-border-color: $grey;
+
+$text: $black-ter;
 
 $weight-medium : 400;
 $weight-semibold : 400;
@@ -30,7 +26,7 @@ $radius-large: 0;
 
 $menu-list-border-left: 2px solid $border;
 
-$pre: $black-unified;
+$pre: $black-ter;
 $pre-background: $white;
 
 $code: $red;

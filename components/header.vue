@@ -2,8 +2,8 @@
 @import "../css/variables";
 
 header {
-  background-color: $black-unified;
-  color: $white-unified;
+  background-color: $black-ter;
+  color: $white-ter;
 }
 
 h1 {
@@ -23,5 +23,7 @@ h1 {
 header
   h1
     router-link.nodeco-inline(to='/')
-      | ENDAAMAN.ME
+      span ENDAAMAN
+      span(style="color: #FDABCD") .
+      span ME
 </template>

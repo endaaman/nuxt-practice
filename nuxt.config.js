@@ -1,4 +1,5 @@
 module.exports = {
+  port: '8080',
   dev: process.env.NODE_ENV !== 'production',
   head: {
     link: [
@@ -27,6 +28,6 @@ module.exports = {
   plugins: [
     '~plugins/markdown',
     '~plugins/global',
-    // '~plugins/prism',
+    '~plugins/buefy',
   ]
 }

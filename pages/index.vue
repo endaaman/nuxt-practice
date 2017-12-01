@@ -4,11 +4,15 @@
 .memo-item {
   padding: 8px 16px;
   margin: 36px 0;
-  border-left: 2px solid $black-unified;
+  border-left: 2px solid $black-ter;
   /* background-color: $white-ter; */
+  &:first-child {
+    margin-top: 0;
+  }
   &:hover {
     background-color: $white-ter;
   }
+
   .memo-title {
     font-size: 24px;
     line-height: 36px;
@@ -57,6 +61,8 @@
           ul.menu-list
             li
               router-link(to="/about") About me
+            li
+              router-link(to="/login") Login
 
           p.menu-label Links
           ul.menu-list
