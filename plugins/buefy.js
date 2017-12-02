@@ -1,10 +1,15 @@
 import Vue from 'vue'
-import Buefy from 'buefy'
+import Buefy, { Toast } from 'buefy'
 
-// Vue.component(Buefy.Loading.name, Buefy.Loading)
-// Vue.use({
-//   install(Vue) {
-//     Vue.prototype.$loading = Buefy.LoadingProgrammatic
-//   }
-// })
-Vue.use(Buefy)
+const components = []
+
+for (const c of components) {
+  Vue.component(Buefy[c].name, Buefy[c])
+}
+
+Vue.use({
+  install(Vue) {
+    Vue.prototype.$toast = Toast
+  }
+})
+// Vue.use(Buefy)

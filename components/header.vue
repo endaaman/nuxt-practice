@@ -17,13 +17,18 @@ h1 {
   line-height: 24px;
   height: 24px;
 }
+
+.accent {
+  color: $primary;
+}
 </style>
 
 <template lang="pug">
 header
   h1
     router-link.nodeco-inline(to='/')
-      span ENDAAMAN
-      span(style="color: #FDABCD") .
+      span.accent E
+      span NDAAMAN
+      span.accent .
       span ME
 </template>

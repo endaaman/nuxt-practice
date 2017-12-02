@@ -1,34 +1,58 @@
 <style scope lang="scss">
 @import "../css/variables";
 
+.container-login {
+  width: 480px;
+  margin: 0 auto;
+}
+
+
 </style>
 
 <template lang="pug">
-.article
-  .container
-    form(v-on:submit.prevent="performLogin")
-      .field
-        label.lavel Password(俺用)
-        p.control
-          input.input(type="password" placeholder="Password" ref="password")
-      .field
-        // button.button.is-success Login
-        button.button Login
+.container-login
+  .notification.is-danger(v-if="errorMessage")
+    button.delete
+    | {{ errorMessage }}
+  form(v-on:submit.prevent="performLogin")
+    .field
+      label.lavel Password(俺用)
+      p.control
+        input.input(type="password" placeholder="Password" ref="password")
+    .field
+      button.button(:class="{ 'is-loading': loading }") Login
 </template>
 
 <script>
 import axios from 'axios'
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
+  layout: 'simple',
+  data: () => ({
+    loading: false,
+    errorMessage: '',
+  }),
+  computed: mapState(['token']),
   methods: {
-    performLogin() {
-      const loading = this.$loading.open()
-      setTimeout(() => {
-        loading.close()
-      }, 4000)
-      console.log(this.$refs.password.value)
-    }
+    async performLogin() {
+      this.loading = true
+      this.errorMessage = ''
+      const { error } = await this.$store.dispatch('login', {
+        password: this.$refs.password.value
+      })
+      this.loading = false
+      if (error) {
+        this.errorMessage = error.message
+      } else {
+        this.$router.push('/')
+        this.$toast.open({
+          message: 'Logged in',
+          position: 'is-bottom',
+        })
+      }
+    },
+    ...mapActions(['login'])
   }
 }
 

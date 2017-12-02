@@ -21,6 +21,12 @@
     line-height: 24px;
     margin: 24px 0;
   }
+
+  /* pre { */
+  /*   max-width: 100%; */
+  /*   overflow-x: auto; */
+  /* } */
+
 }
 
 .memo-tags {
@@ -38,15 +44,14 @@
       li
         router-link(:to="'/-/' + memo.slug") {{memo.title}}
 
-  .container
-    h1.title {{memo.title}}
-    h2.subtitle(v-if="memo.digest") {{memo.digest}}
-    .tags
-      a.tag.is-white Vim
-      a.tag.is-white Java
-      a.tag.is-white C言語
+  h1.title {{memo.title}}
+  h2.subtitle(v-if="memo.digest") {{memo.digest}}
+  .tags
+    a.tag.is-white Vim
+    a.tag.is-white Java
+    a.tag.is-white C言語
   hr
-  .container.memo-content.content
+  .memo-content.content
     VueMarkdown {{ memo.content }}
 </template>
 

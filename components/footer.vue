@@ -8,16 +8,24 @@ footer {
   text-align: right;
 
   font-style: italic;
+  font-size: 14px;
 
   background-color: $black-ter;
   color: $white-ter;
 }
 </style>
 
-</style>
-
 <template lang="pug">
 footer
   .container
-    span.is-size-7 Built at {{ (new Date()).toJSON() }}
+    span Built at {{ builtAt }}
 </template>
+
+
+<script>
+export default {
+  data: () => ({
+    builtAt: process.env.builtAt
+  })
+}
+</script>

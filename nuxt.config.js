@@ -1,5 +1,8 @@
 module.exports = {
-  port: '8080',
+  env: {
+    apiRoot: 'http://localhost:3001',
+    builtAt: new Date(),
+  },
   dev: process.env.NODE_ENV !== 'production',
   head: {
     link: [

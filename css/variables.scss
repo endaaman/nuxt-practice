@@ -1,11 +1,14 @@
 @import "~bulma/sass/utilities/_all";
 
 // General
+$primary: #FDABCD;
+
 $body-background-color: $white;
 
 $border: $black-ter;
 $border-hover: $grey;
 
+$control-radius: 0;
 $input-border-color: $black-ter;
 $input-hover-border-color: $grey;
 
