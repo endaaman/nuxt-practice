@@ -1,7 +1,7 @@
 <style scope lang="scss">
 @import "../../css/variables";
 
-.memo-content {
+.article-content {
   h2 {
     margin: 48px 0 24px;
     line-height: 48px;
@@ -21,15 +21,9 @@
     line-height: 24px;
     margin: 24px 0;
   }
-
-  /* pre { */
-  /*   max-width: 100%; */
-  /*   overflow-x: auto; */
-  /* } */
-
 }
 
-.memo-tags {
+.article-tags {
   margin-top: 16px;
 }
 
@@ -40,19 +34,19 @@
   nav.breadcrumb.is-small(aria-label="breadcrumbs")
     ul
       li
-        router-link(to="/") Home
+        nuxt-link(to="/") Home
       li
-        router-link(:to="'/-/' + memo.slug") {{memo.title}}
+        nuxt-link(:to="'/-/' + article.slug") {{article.title}}
 
-  h1.title {{memo.title}}
-  h2.subtitle(v-if="memo.digest") {{memo.digest}}
+  h1.title {{article.title}}
+  h2.subtitle(v-if="article.digest") {{article.digest}}
   .tags
     a.tag.is-white Vim
     a.tag.is-white Java
     a.tag.is-white C言語
   hr
-  .memo-content.content
-    VueMarkdown {{ memo.content }}
+  .article-content.content
+    VueMarkdown {{ article.content }}
 </template>
 
 <script>
@@ -61,12 +55,11 @@ import { mapState } from 'vuex'
 
 export default {
   async fetch ({ store, params }) {
-    console.log('fetcx')
-    await store.dispatch('fetchMemos')
+    await store.dispatch('fetchArticles')
   },
   computed: {
-    memo() {
-      return this.$store.getters.findMemo(this.$route.params.slug)
+    article() {
+      return this.$store.getters.findArticle(this.$route.params.slug)
     },
   },
 }

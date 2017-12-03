@@ -9,13 +9,13 @@ async function sleep(ms = 3000) {
 
 export const state = () => ({
   authorized: false,
-  memos: [],
+  articles: [],
   token: null,
 })
 
 export const mutations = {
-  setMemos(state, items) {
-    state.memos = items
+  setArticles(state, items) {
+    state.articles = items
   },
   setToken(state, token) {
     state.token = token
@@ -30,13 +30,13 @@ export const actions = {
       commit('setToken', cookies.token)
     }
   },
-  async fetchMemos({ commit, getters }) {
-    if (getters.hasMemos) {
+  async fetchArticles({ commit, getters }) {
+    if (getters.hasArticles) {
       return
     }
     const { data } = await axios.get('https://api.endaaman.me/memos')
     data.reverse()
-    commit('setMemos', data)
+    commit('setArticles', data)
   },
   async login({ getters, commit }, { password }) {
     let error = null
@@ -61,12 +61,12 @@ export const getters = {
       headers,
     })
   },
-  hasMemos(state) {
-    return state.memos.length > 0
+  hasArticles(state) {
+    return state.articles.length > 0
   },
-  findMemo(state) {
+  findArticle(state) {
     return (slug) => {
-      return state.memos.find(memo => memo.slug === slug)
+      return state.articles.find(article => article.slug === slug)
     }
   }
 }

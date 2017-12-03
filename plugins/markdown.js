@@ -7,17 +7,21 @@ const Extended = {
   mounted () {
     this.$el.querySelectorAll('pre > code').forEach((e) => {
       let isCode = false
+
+      let splitted = null
       e.classList.forEach((c) => {
-        if (c.startsWith('language-')) {
+        splitted = c.split('language-')
+        if (splitted.length === 2) {
           isCode = true
           return false
         }
       })
       if (isCode) {
+        e.parentElement.dataset.language = splitted[1]
         hljs.highlightBlock(e.parentElement)
       }
     })
-  }
+  },
 }
 
 Vue.component('VueMarkdown', Extended)

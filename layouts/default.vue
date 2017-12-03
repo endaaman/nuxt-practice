@@ -8,9 +8,7 @@ $breakpoint: 720px;
   .row {
     display: flex;
     flex-direction: row-reverse;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;  // this is needed for horizontal grow
   }
 
   .col-main {
@@ -43,7 +41,7 @@ $breakpoint: 720px;
 <template lang="pug">
 .root
   my-header
-  .row
+  .row.container
     .col-sidebar
       .section
         my-sidebar

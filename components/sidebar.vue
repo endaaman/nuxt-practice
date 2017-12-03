@@ -50,9 +50,9 @@ aside.sidebar
   h2 Links
   ul
     li
-      router-link(to="/-/about") About me
+      nuxt-link(to="/-/about") About me
     li
-      router-link(to="/login") Login
+      nuxt-link(to="/login") Login
 
   h2 Accounts
   ul
@@ -60,6 +60,17 @@ aside.sidebar
       a(href="http://twitter.com/endaaman") Twitter
     li
       a(href="http://github.com/endaaman") GitHub
-
-
+    li
+      span {{hoge}}
 </template>
+
+<script>
+import { mapState } from 'vuex'
+
+export default {
+  data: () => ({
+    hoge: 'hidwa',
+  }),
+  computed: mapState(['articles']),
+}
+</script>

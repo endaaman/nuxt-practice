@@ -1,7 +1,7 @@
 <style scope lang="scss">
 @import "../css/variables";
 
-.memo-item {
+.article-item {
   padding: 8px 16px;
   margin: 36px 0;
   border-left: 2px solid $black-ter;
@@ -14,24 +14,24 @@
     /* border-left-color: $primary; */
   }
 
-  .memo-title {
+  .article-title {
     font-size: 24px;
     line-height: 36px;
   }
-  .memo-subtitle {
+  .article-subtitle {
     font-size: 16px;
     line-height: 24px;
   }
-  .memo-sub {
+  .article-sub {
     margin: 8px 0;
     overflow: hidden;
   }
-  .memo-date {
+  .article-date {
     float: left;
     color: $text-light;
     /* font-size: $size-7; */
   }
-  .memo-tags {
+  .article-tags {
     margin: 0;
     float: right;
   }
@@ -41,14 +41,14 @@
 
 <template lang="pug">
 div
-  .memo-item(v-for="memo in memos", :key="memo.slug")
-    router-link.nodeco-block(:to="{path: '/-/' + memo.slug}")
-      div.memo-title {{memo.title}}
-      div.memo-subtitle {{memo.digest}}
-    .memo-sub
-      .memo-date
-        | {{formatDate(memo.updated_at)}}
-      .memo-tags
+  .article-item(v-for="article in articles", :key="article.slug")
+    nuxt-link.nodeco-block(:to="{path: '/-/' + article.slug}")
+      div.article-title {{article.title}}
+      div.article-subtitle {{article.digest}}
+    .article-sub
+      .article-date
+        | {{formatDate(article.updated_at)}}
+      .article-tags
         .tags
           a.tag.is-white Vim
           a.tag.is-white Java
@@ -62,11 +62,11 @@ import { mapState } from 'vuex'
 
 export default {
   async fetch ({ store, params }) {
-    await store.dispatch('fetchMemos')
+    await store.dispatch('fetchArticles')
   },
   computed: {
-    memos() {
-      return this.$store.state.memos
+    articles() {
+      return this.$store.state.articles
     },
   },
   methods: {

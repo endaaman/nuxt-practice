@@ -26,7 +26,7 @@ h1 {
 <template lang="pug">
 header
   h1
-    router-link.nodeco-inline(to='/')
+    nuxt-link.nodeco-inline(to='/')
       span.accent E
       span NDAAMAN
       span.accent .
