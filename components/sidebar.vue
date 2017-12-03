@@ -51,8 +51,10 @@ aside.sidebar
   ul
     li
       nuxt-link(to="/-/about") About me
-    li
+    li(v-if="!authorized")
       nuxt-link(to="/login") Login
+    li(v-if="authorized")
+      nuxt-link(to="/logout") Logout
 
   h2 Accounts
   ul
@@ -71,6 +73,6 @@ export default {
   data: () => ({
     hoge: 'hidwa',
   }),
-  computed: mapState(['articles']),
+  computed: mapState(['articles', 'authorized']),
 }
 </script>

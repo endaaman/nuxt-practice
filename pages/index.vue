@@ -60,9 +60,13 @@ import axios from 'axios'
 import fecha from 'fecha'
 import { mapState } from 'vuex'
 
+
 export default {
   async fetch ({ store, params }) {
-    await store.dispatch('fetchArticles')
+    await Promise.all([
+      store.dispatch('fetchArticles'),
+      // store.dispatch('checkAuth'),
+    ])
   },
   computed: {
     articles() {

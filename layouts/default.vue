@@ -3,7 +3,6 @@
 
 $breakpoint: 720px;
 
-
 @media screen and (min-width: $breakpoint) {
   .row {
     display: flex;
@@ -35,7 +34,6 @@ $breakpoint: 720px;
     width: 480px;
   }
 }
-
 </style>
 
 <template lang="pug">

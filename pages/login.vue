@@ -24,8 +24,7 @@
 </template>
 
 <script>
-import axios from 'axios'
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   layout: 'simple',
@@ -33,7 +32,6 @@ export default {
     loading: false,
     errorMessage: '',
   }),
-  computed: mapState(['token']),
   methods: {
     async performLogin() {
       this.loading = true
@@ -51,8 +49,7 @@ export default {
           position: 'is-bottom',
         })
       }
-    },
-    ...mapActions(['login'])
+    }
   }
 }
 

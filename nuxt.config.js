@@ -21,6 +21,13 @@ module.exports = {
     { src: '@/css/bulma.scss', lang: 'scss'},
     { src: '@/css/app.scss', lang: 'scss'},
   ],
+   build: {
+    postcss: {
+      plugins: {
+        'postcss-custom-properties': false, // supress bulma warning
+      }
+    }
+  },
   render: {
     bundleRenderer: {
       shouldPreload: (file, type) => {
