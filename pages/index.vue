@@ -36,7 +36,6 @@
     float: right;
   }
 }
-
 </style>
 
 <template lang="pug">
@@ -64,7 +63,7 @@ import { mapState } from 'vuex'
 export default {
   async fetch ({ store, params }) {
     await Promise.all([
-      store.dispatch('fetchArticles'),
+      store.dispatch('getArticles'),
       // store.dispatch('checkAuth'),
     ])
   },

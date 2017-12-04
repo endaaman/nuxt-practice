@@ -1,22 +1,33 @@
-<style scoped lang="scss">
-@import "../css/variables";
+<style lang="scss">
+@import "../css/layout.scss";
+
+.container-error {
+  text-align: center;
+  h1 {
+    font-size: 64px;
+  }
+}
 </style>
 
 <template lang="pug">
 .root
   my-header
-  .columns
-    .column.section
-      h1(v-if="error.statusCode === 404") Page not found
-      h1(v-else) Somethig went wrong
-      nuxt-link(to="/") ホーム
-    .column.section.is-narrow
-      my-sidebar
+  .row.container
+    .col-sidebar
+      .section
+        my-sidebar
+    .col-main
+      .section
+        .container-error
+          h1 {{error.statusCode}}
+          p {{error.message}}
+          nuxt-link(to="/") Home
   my-footer
 </template>
 
 <script>
 export default {
+  layout: 'simple',
   props: ['error'],
 }
 </script>

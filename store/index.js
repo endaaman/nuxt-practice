@@ -19,10 +19,12 @@ export const state = () => ({
   isClient: true,
 })
 
-
 export const mutations = {
   setArticles(state, items) {
     state.articles = items
+  },
+  clearArticles(state, items) {
+    state.articles = null
   },
   setToken(state, token) {
     state.token = token
@@ -53,26 +55,32 @@ export const actions = {
       await dispatch('checkAuth')
     }
   },
+
   async fetchArticles({ commit, getters }) {
-    if (getters.hasArticles) {
-      return
-    }
-    const { data } = await axios.get('https://api.endaaman.me/memos')
+    const { data } = await getters.api.get('/articles')
     data.reverse()
     commit('setArticles', data)
   },
-  async login({ getters, commit }, { password }) {
+  async getArticles({ commit, getters, dispatch }) {
+    if (getters.hasArticles) {
+      return
+    }
+    await dispatch('fetchArticles')
+  },
+
+  async login({ getters, commit, dispatch }, { password }) {
     let error = null
     try {
       const { data: { token } } = await getters.api.post('/sessions', { password })
       commit('setToken', token)
       commit('setAuthorized', true)
+      dispatch('fetchArticles')
     } catch (e) {
       error = e
     }
     return { error }
   },
-  async checkAuth({ getters, commit, token }) {
+  async checkAuth({ getters, commit, dispatch }) {
     let error = null
     try {
       await getters.api.get('/sessions')
@@ -81,10 +89,12 @@ export const actions = {
       commit('clearToken')
     }
     commit('setAuthorized', !error)
+    dispatch('fetchArticles')
   },
-  async logout({ getters, commit }) {
+  async logout({ getters, commit, dispatch }) {
     commit('clearToken')
     commit('setAuthorized', false)
+    dispatch('fetchArticles')
   }
 }
 
